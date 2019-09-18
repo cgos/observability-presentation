@@ -53,11 +53,17 @@
 						<div class=footer>
 							<div>
 								Christian Gosselin <br />
-								<a href="https://cgos.github.io/observability-presentation"> https://cgos.github.io/observability-presentation</a>
+								<a href="https://cgos.github.io/observability-presentation">
+									https://cgos.github.io/observability-presentation</a>
 							</div>
 						</div>
 					</small>
 				</p>
+				<aside class="notes">
+					<p>
+						Parlons Observability, comment nous pouvons mesurer la santé de nos systèmes
+					</p>
+				</aside>
 			</section>
 
 			<section style="text-align: left;">
@@ -71,7 +77,8 @@
 				</p>
 				<aside class="notes">
 					<p>
-						Tout le matériel de cette présentation vient principalement du contenu produit par
+						Premièrement, mea culpa, tout le matériel de cette présentation vient principalement du contenu
+						produit par
 						ces personnes
 					</p>
 				</aside>
@@ -80,6 +87,26 @@
 			<section>
 				<section style="vertical-align:text-top; width: 90%; height: 90%">
 					<img src="images/CNCF_TrailMap_top.png">
+
+					<aside class="notes">
+						<p>
+							Pourquoi parlé d'observablité? Le standard aujourd'hui consiste à produire des systèmes en
+							format containers. Juste la notion de
+							containerization représente un défi en soi:
+							<ul>
+								<li>quelle image</li>
+								<li>comment la construire</li>
+								<li>la taille</li>
+								<li>immutablity</li>
+							</ul>
+
+							la notion de container implique plusieurs considération de software design que nous devons
+							maitriser expliqué entre autre sur le site 12factor.net
+
+
+
+						</p>
+					</aside>
 				</section>
 				<section style="vertical-align:text-top; width: 90%; height: 90%">
 
@@ -189,29 +216,40 @@
 				<section data-background-color="rgba( 22, 152, 213, 0.6  )">
 					<h2 style="text-align: left;">Logs</h2>
 					<p>
-						<blockquote style="color:rgb(0, 247, 255); width: 95%">
-							An event log is an immutable, timestamped record of discrete events that happened over time.
+						<blockquote style="width: 85%">
+							<small>
+								<ul>
+									<li>Logs are the stream of aggregated, time-ordered events collected from the output
+										streams of all running processes.
+									<li>Logs in their raw form are typically a text format with one event
+										per line (exceptions may span multiple lines).
+									<li>Logs have no fixed beginning or end, but flow continuously as long as the app is
+										operating.
+								</ul>
+							</small>
 						</blockquote>
 						<small>
-							<sup class=superscript style="font-size: 50%">Ref: Cindy Sridharan<br>
+							<sup class=superscript style="font-size: 50%"><a
+									href="https://12factor.net/logs">https://12factor.net/logs</a>
 							</sup>
 						</small>
 					</p>
 				</section>
 				<section data-background="images/logs-wood.jpg" data-background-opacity="0.4">
-					<div style="float: left; width: 55%; margin-top: 1em">
-						<ul>
-							<li> Logs come in three different flavors: Plaintext, Structured (JSON format) or binary
-							<li> Trivial to generate
-							<li> Provide rich context information
-							<li> Expensive to process, move, store and query
-							<li> They are noisy
-						</ul>
-						<small>
-							<sup class=superscript style="font-size: 50%">Ref: Adrian Cole
-							</sup>
-						</small>
-					</div>
+					<small>
+						<p class="fragement">
+							<ul>
+								<li> Logs come in three different flavors: Plaintext, Structured (JSON format) or binary
+								<li> Trivial to generate
+								<li> Provide rich context information
+								<li> Expensive to process, move, store and query
+								<li> They are noisy
+								<li>An app should not attempt to write to or manage logfiles. Instead, each running
+									process
+									writes its event stream, unbuffered, to stdout.
+							</ul>
+						</p>
+					</small>
 				</section>
 				<section>
 					<h3>Instrumentation</h3>
@@ -239,10 +277,11 @@
 					</pre>
 				</section>
 
+
 				<section>
-					<h1>Presentation</h1>
-					<p>Screenshots</p>
+					<img src="images/splunk-logs.png" style="width: 300%;height: auto;">
 				</section>
+
 			</section>
 
 			<section>
@@ -321,6 +360,14 @@
 			<section>
 				<h1>Conclusion</h1>
 				<p></p>
+			</section>
+
+			<section style="text-align: left;">
+				<h2>Other references</h2>
+				<p>
+					- <a href="https://www.cncf.io">Cloud Native Computing Foundation</a><br>
+					- <a href="https://12factor.net">The Twelve Factor App</a> <br>
+				</p>
 			</section>
 
 			<section>
