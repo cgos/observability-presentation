@@ -71,6 +71,7 @@
 				<p>
 					- <a href="https://github.com/adriancole">Adrian Cole</a><br>
 					- <a href="https://peter.bourgon.org">Peter Bourgon</a> <br>
+					- <a href="http://www.brendangregg.com/index.html">Brendan D. Gregg</a><br>
 					- <a href="https://github.com/yurishkuro">Yuri Shkuro</a> <br>
 					- <a href="https://medium.com/@el_bhs">Ben Sigelman</a> <br>
 					- <a href="https://twitter.com/copyconstruct">Cindy Sridharan</a> <br>
@@ -120,17 +121,12 @@
 			</section>
 
 			<section>
-				<section>
-					<h3>Observability</h3>
-					<p>Definition avec quote de Bourgon</p>
-				</section>
-
-				<section data-background="images/close-up-coding-contemporary-1342460.jpg"
-					data-background-opacity="0.4">
+				<section data-background-color="rgb(187, 87, 6)">
+					<h2 style="text-align: left;">Observability</h2>
 					<div style="font-size: 75%">
 						The behavior of a system can be determined by only looking at its inputs and outputs.
 					</div>
-					<blockquote style="color:#40FF00; width: 80%">
+					<blockquote style="width: 80%">
 						In control theory, <u>observability</u> is a measure of how well internal states of a system can
 						be
 						inferred from knowledge of its external outputs.
@@ -145,6 +141,11 @@
 					<div style="font-size: 75%">
 						Observability is about producing/transmitting/recording data.
 					</div>
+
+				</section>
+
+				<section data-background="images/close-up-coding-contemporary-1342460.jpg"
+					data-background-opacity="0.4">
 				</section>
 
 				<section data-background="#fff">
@@ -211,6 +212,9 @@
 						<img src="images/rainer-bleek-3DnX8CUsYmw-unsplash.jpg" style="width: 60%;height: auto;">
 					</div>
 				</section>
+				<section>
+					Strava / Garmin connect
+				</section>
 			</section>
 			<section>
 				<section data-background-color="rgba( 22, 152, 213, 0.6  )">
@@ -251,6 +255,39 @@
 						</p>
 					</small>
 				</section>
+
+				<section>
+					Frameworks : CNCF
+				</section>
+
+				<section data-background="#fff">
+					<div style="float: left; width: 35%; margin-top: 1em">
+						<p>
+							An app should not attempt to write to or manage logfiles.<br>
+						</p>
+						<p>
+							Instead, each running process writes its event stream, unbuffered, to stdout.
+						</p>
+						<small>
+							<sup class=superscript style="font-size: 50%"><a
+									href="https://12factor.net/logs">https://12factor.net/logs</a>
+							</sup>
+						</small>
+					</div>
+
+					<div style=" float: right; width: 60%; vertical-align: text-bottom;">
+						<p>
+							<img src="images/fluentd-high-level.png" style="background-color: #fff;">
+							<small>
+								<sup class=superscript style="font-size: 50%">Ref: <a
+										href="https://docs.fluentd.org/quickstart">fluentd</a><br>
+								</sup>
+							</small>
+						</p>
+					</div>
+
+				</section>
+
 				<section>
 					<h3>Instrumentation</h3>
 					<pre style="width: 100%; line-height: 1.1em; font-size: 0.45em;">
@@ -277,15 +314,20 @@
 					</pre>
 				</section>
 
-
 				<section>
 					<img src="images/splunk-logs.png" style="width: 300%;height: auto;">
 				</section>
 
+				<section>
+					<img src="images/raw-logs.png" class="center" style="max-width: 110%">
+				</section>
+
+
+
 			</section>
 
 			<section>
-				<section data-background-color="rgba( 22, 152, 213, 0.6  )">
+				<section data-background-color="rgb(115, 37, 91)">
 					<h2 style="text-align: left;">Metrics</h2>
 					<p>
 						<blockquote style="width: 95%">
@@ -300,6 +342,18 @@
 					</p>
 				</section>
 
+				<section data-background="images/metrics.jpg" data-background-opacity="0.4">
+					Thoughts
+				</section>
+
+				<section>
+					Frameworks
+				</section>
+
+				<section>
+					Instrumentation
+				</section>
+
 				<section data-background-color="#fff">
 					<img src="images/metrics.png" style="width: 90%;height: auto;">
 					<small>
@@ -309,33 +363,50 @@
 				</section>
 
 				<section>
-					<h3>Metrics presentation and instrumentation</h3>
-					<p></p>
+					Raw Format
+				</section>
+
+				<section>
+					<h3>Presentation</h3>
 				</section>
 			</section>
 
 			<section>
-				<section data-background-color="rgba( 22, 152, 213, 0.6  )">
+				<!-- "rgba( 50, 200, 90, 0.6  )" -->
+				<section data-background-color="rgba(50, 170, 90, 0.6)">
 					<h2 style="text-align: left;">Distributed Traces</h2>
 					<p>When it comes to distributed systems, in the absence of a distributed debugger,
 						observability data from the various components of the system is required to be able to
 						effectively debug such systems.</p>
 				</section>
 
-
+				<section data-background="images/trace.jpg" data-background-opacity="0.4">
+					Thoughts
+				</section>
 
 				<section>
-					<h3>Traces presentation and instrumentation</h3>
-					<p></p>
+					Frameworks
+				</section>
+
+				<section>
+					Instrumentation
 				</section>
 
 				<section data-background-color="#fff">
-					<img src="images/spans-traces.png" style="width: 90%;height: auto;">
+					<img src="images/spans-traces.png" style="width: 90%;height: auto;"><br>
 					<small>
 						<sup class=superscript style="font-size: 50%">Ref: <a
 								href="https://www.jaegertracing.io/docs/1.14/architecture/">Jaeger</a>
 						</sup>
 					</small>
+				</section>
+
+				<section>
+					Raw Format
+				</section>
+
+				<section>
+					Presentation
 				</section>
 
 			</section>
