@@ -117,6 +117,13 @@
 								href="https://github.com/cncf/trailmap">CNCF Trailmap</a><br>
 						</sup>
 					</small>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 			</section>
 
@@ -141,11 +148,14 @@
 					<div style="font-size: 75%">
 						Observability is about producing/transmitting/recording data.
 					</div>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 
-				</section>
-
-				<section data-background="images/close-up-coding-contemporary-1342460.jpg"
-					data-background-opacity="0.4">
 				</section>
 
 				<section data-background="#fff">
@@ -191,6 +201,13 @@
 							</small>
 						</p>
 					</div>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 
 				</section>
 
@@ -211,9 +228,19 @@
 							</small></p>
 						<img src="images/rainer-bleek-3DnX8CUsYmw-unsplash.jpg" style="width: 60%;height: auto;">
 					</div>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
-				<section>
-					Strava / Garmin connect
+				<section data-background="images/IMG_3926.JPG" data-background-opacity="0.4">
+					<h3>Telemetry and Observability</h3>
+					<a href="https://connect.garmin.com/modern/activity/3780455873">It's about recording & transmitting
+						the readings of an instrument.</a>
 				</section>
 			</section>
 			<section>
@@ -238,22 +265,37 @@
 							</sup>
 						</small>
 					</p>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 				<section data-background="images/logs-wood.jpg" data-background-opacity="0.4">
+					<h2 style="text-align: left;">Logs</h2>
 					<small>
 						<p class="fragement">
 							<ul>
-								<li> Logs come in three different flavors: Plaintext, Structured (JSON format) or binary
+								<li> Come in three different flavors: Plaintext, Structured (JSON format) or binary
 								<li> Trivial to generate
 								<li> Provide rich context information
 								<li> Expensive to process, move, store and query
-								<li> They are noisy
-								<li>An app should not attempt to write to or manage logfiles. Instead, each running
-									process
-									writes its event stream, unbuffered, to stdout.
+								<li> Noisy
+								<li> Relates to a single system</li>
 							</ul>
 						</p>
 					</small>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section data-background="#fff">
@@ -281,6 +323,13 @@
 							</small>
 						</p>
 					</div>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 
 				</section>
 
@@ -308,6 +357,14 @@
 							}
 						</code>
 					</pre>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section>
@@ -336,18 +393,93 @@
 							</sup>
 						</small>
 					</p>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section data-background="images/metrics.jpg" data-background-opacity="0.4">
-					Thoughts
+					<h2 style="text-align: left;">Metrics</h2>
+					<small>
+						<p class="fragement">
+							<ul>
+								<li> Have a linear cost. Spike in traffic doesn't generate more metrics.
+								<li> Near realtime availability</li>
+								<li> Useful to identify patterns and generate alerts</li>
+								<li> Great to generate reports and diagram</li>
+								<li> Cost increase with the number of label values</li>
+								<li> Almost no context</li>
+								<li> Relates to a single system (like logs)</li>
+							</ul>
+						</p>
+					</small>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li>Plus de requete ne génère pas plus de métrique</li>
+								<li>Disponible presque immédiatement</li>
+								<li>Facile d'appliquer des calculs sur les différentes métriques</li>
+								<li>Le cout augmente avec le nombre de composante devant être identifié et comptabilisé
+								</li>
+								<li>attaché à un seul système à défaut d'avoir un UID qui permet de faire des
+									corrélations</li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
-				<section>
-					Frameworks
+				<section data-background="#fff">
+					<div style="float: left; width: 65%; margin-top: 1em">
+						<p>
+							A time series is simply a series of data points ordered in time.
+							In a time series, time is often the independent variable and the goal is usually to make a
+							forecast for the future
+						</p>
+						<small>
+							<sup class=superscript style="font-size: 50%"><a
+									href="https://towardsdatascience.com/the-complete-guide-to-time-series-analysis-and-forecasting-70d476bfe775">Marco
+									Peixeiro
+								</a>
+							</sup>
+						</small>
+					</div>
+
+					<div style=" float: right; width: 35%; vertical-align: text-bottom;">
+						<p>
+							<img src="images/Random-data-plus-trend-r2.png" style="background-color: #fff;">
+							<small>
+								<sup class=superscript style="font-size: 50%"><a
+										href="https://en.wikipedia.org/wiki/Time_series">https://en.wikipedia.org/wiki/Time_series</a>
+								</sup>
+							</small>
+						</p>
+					</div>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
 				<section>
 					Instrumentation
+
+
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section data-background-color="#fff">
@@ -356,14 +488,41 @@
 						<sup class=superscript style="font-size: 50%">Ref: Cindy Sridharan<br>
 						</sup>
 					</small>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section>
-					Raw Format
+					<ul>
+						<li>Counters: Number of HTTP 500
+						<li>Gauge: Memory usage
+						<li>Histogram: Statistical distribution: 95th percentile of request execution
+						<li>Rate: Error/minutes
+					</ul>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
 				<section>
 					<h3>Presentation</h3>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 			</section>
 
@@ -374,18 +533,62 @@
 					<p>When it comes to distributed systems, in the absence of a distributed debugger,
 						observability data from the various components of the system is required to be able to
 						effectively debug such systems.</p>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section data-background="images/trace.jpg" data-background-opacity="0.4">
-					Thoughts
+					<h2 style="text-align: left;">Distributed Traces</h2>
+					<small>
+						<p class="fragement">
+							<ul>
+								<li> </li>
+								<li> </li>
+								<li> </li>
+								<li> </li>
+								<li> </li>
+								<li> </li>
+							</ul>
+						</p>
+					</small>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section>
 					Frameworks
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section>
 					Instrumentation
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section data-background-color="#fff">
@@ -395,14 +598,38 @@
 								href="https://www.jaegertracing.io/docs/1.14/architecture/">Jaeger</a>
 						</sup>
 					</small>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section>
 					Raw Format
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 				<section>
 					Presentation
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
 				</section>
 
 			</section>
@@ -415,9 +642,17 @@
 				<script type="text/javascript" src="css/drawio/viewer.min.js"></script>
 				<small>
 					<sup class=superscript style="font-size: 50%">Ref: <a
-							href="https://github.com/cgos/microservice-app-demo">https://github.com/cgos/microservice-app-demo</a>
+							href="https://github.com/cgos/observability-app-demo">https://github.com/cgos/observability-app-demo</a>
 					</sup>
 				</small>
+				<aside class="notes">
+					<p>
+						<ul>
+							<li></li>
+						</ul>
+					</p>
+				</aside>
+
 			</section>
 
 			<section>
@@ -427,39 +662,55 @@
 					<li>Prometheus for metrics</li>
 					<li>Jaeger for traces</li>
 				</ul>
+				<aside class="notes">
+					<p>
+						<ul>
+							<li></li>
+						</ul>
+					</p>
+				</aside>
+
 			</section>
 
 			<section>
 				<h1>Conclusion</h1>
 				<p></p>
+				<aside class="notes">
+					<p>
+						<ul>
+							<li></li>
+						</ul>
+					</p>
+				</aside>
+
 			</section>
 
 
-	<script src="js/reveal.js"></script>
+			<script src="js/reveal.js"></script>
 
-	<script>
+			<script>
 
-		// More info https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			center: true,
-			hash: true,
+				// More info https://github.com/hakimel/reveal.js#configuration
+				Reveal.initialize({
+					controls: true,
+					progress: true,
+					center: true,
+					hash: true,
 
-			transition: 'slide', // none/fade/slide/convex/concave/zoom
+					transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-			// More info https://github.com/hakimel/reveal.js#dependencies
-			dependencies: [
-				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-				{ src: 'plugin/highlight/highlight.js', async: true },
-				{ src: 'plugin/search/search.js', async: true },
-				{ src: 'plugin/zoom-js/zoom.js', async: true },
-				{ src: 'plugin/notes/notes.js', async: true }
-			]
-		});
+					// More info https://github.com/hakimel/reveal.js#dependencies
+					dependencies: [
+						{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+						{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+						{ src: 'plugin/highlight/highlight.js', async: true },
+						{ src: 'plugin/search/search.js', async: true },
+						{ src: 'plugin/zoom-js/zoom.js', async: true },
+						{ src: 'plugin/notes/notes.js', async: true }
+					]
+				});
 
-	</script>
+			</script>
 
 </body>
 
