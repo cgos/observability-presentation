@@ -463,39 +463,11 @@
 						<p>
 							<ul>
 								<li></li>
+								<li>Les metriques nous aident par exemple a repondre a la question, est-ce que le temps
+									d'exec de cette requete est lent</li>
 							</ul>
 						</p>
 					</aside>
-				</section>
-
-				<section>
-					Instrumentation
-
-
-					<aside class="notes">
-						<p>
-							<ul>
-								<li></li>
-							</ul>
-						</p>
-					</aside>
-
-				</section>
-
-				<section data-background-color="#fff">
-					<img src="images/metrics.png" style="width: 90%;height: auto;">
-					<small>
-						<sup class=superscript style="font-size: 50%">Ref: Cindy Sridharan<br>
-						</sup>
-					</small>
-					<aside class="notes">
-						<p>
-							<ul>
-								<li></li>
-							</ul>
-						</p>
-					</aside>
-
 				</section>
 
 				<section>
@@ -514,8 +486,30 @@
 					</aside>
 				</section>
 
-				<section>
-					<h3>Presentation</h3>
+				<section data-background-color="#fff">
+					<img src="images/metrics.png" style="width: 90%;height: auto;">
+					<small>
+						<sup class=superscript style="font-size: 50%">Ref: Cindy Sridharan<br>
+						</sup>
+					</small>
+
+
+
+					<aside class="notes">
+						<p>
+							<ul>
+								<li>Labels by hosts, environment, url, service name, http status code</li>
+								<li>Pull vs Push and JMX exporter or actuator + micrometer</li>
+								<li> plus de details dans la demo </li>
+							</ul>
+						</p>
+					</aside>
+
+				</section>
+
+				<section data-background-color="#fff">
+					<img src="images/IMG_0858.jpg">
+
 					<aside class="notes">
 						<p>
 							<ul>
@@ -523,6 +517,7 @@
 							</ul>
 						</p>
 					</aside>
+
 				</section>
 			</section>
 
@@ -530,9 +525,23 @@
 				<!-- "rgba( 50, 200, 90, 0.6  )" -->
 				<section data-background-color="rgba(50, 170, 90, 0.6)">
 					<h2 style="text-align: left;">Distributed Traces</h2>
-					<p>When it comes to distributed systems, in the absence of a distributed debugger,
-						observability data from the various components of the system is required to be able to
-						effectively debug such systems.</p>
+
+
+					<blockquote style="width: 95%">
+						Distributed tracing is a method used to profile and
+						monitor applications, <br>
+						especially those built using a microservices architecture.
+						Distributed tracing helps pinpoint where failures occur and what causes poor performance.
+					</blockquote>
+
+					<small>
+						<sup class=superscript style="font-size: 50%"><a
+								href="https://opentracing.io/docs/overview/what-is-tracing/"> https://opentracing.io
+							</a><br>
+						</sup>
+					</small>
+
+
 					<aside class="notes">
 						<p>
 							<ul>
@@ -548,14 +557,27 @@
 					<small>
 						<p class="fragement">
 							<ul>
-								<li> </li>
-								<li> </li>
-								<li> </li>
-								<li> </li>
-								<li> </li>
-								<li> </li>
+								<li> Enables developers to see how an individual request is handled</li>
+								<li> Provides insight into the full lifecycles of requests, allowing you to pinpoint
+									failures and performance issues.</li>
+								<ul>
+									<li> Which services did a request go through?</li>
+									<li> What did every microservice do when processing the request?</li>
+									<li> If the request failed, where did the error happen?</li>
+									<li> How different was the execution of the request from the normal behavior of the
+										system?</li>
+									<li> Were the differences structural, that is, some new services were called, or
+										vice versa, some usual services were not called?</li>
+								</ul>
 							</ul>
 						</p>
+					</small>
+					<small>
+						<sup class=superscript style="font-size: 50%"><a
+								href="https://medium.com/@YuriShkuro/observability-challenges-in-microservices-and-cloud-native-applications-72857f9d03af">
+								Yuri Shkuro
+							</a>
+						</sup>
 					</small>
 					<aside class="notes">
 						<p>
