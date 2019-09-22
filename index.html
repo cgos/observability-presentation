@@ -66,8 +66,9 @@
 				</aside>
 			</section>
 
-			<section style="text-align: left;">
-				<h2>Who to read and watch</h2>
+			<section style="text-align: left;" data-background="images/stealing.jpg" data-background-opacity="0.4">
+				<h3>Shamefully Stole </h3> 
+				<h3>or you might say "Inspired" from</h3>
 				<p>
 					- <a href="https://github.com/adriancole">Adrian Cole</a><br>
 					- <a href="https://peter.bourgon.org">Peter Bourgon</a> <br>
@@ -557,32 +558,26 @@
 					<small>
 						<p class="fragement">
 							<ul>
+								<li> Help visualize and understand complex architectures</li>
 								<li> Enables developers to see how an individual request is handled</li>
+								<li> Attach a unique trace ID to requests</li>
 								<li> Provides insight into the full lifecycles of requests, allowing you to pinpoint
 									failures and performance issues.</li>
-								<ul>
-									<li> Which services did a request go through?</li>
-									<li> What did every microservice do when processing the request?</li>
-									<li> If the request failed, where did the error happen?</li>
-									<li> How different was the execution of the request from the normal behavior of the
-										system?</li>
-									<li> Were the differences structural, that is, some new services were called, or
-										vice versa, some usual services were not called?</li>
-								</ul>
 							</ul>
 						</p>
 					</small>
-					<small>
-						<sup class=superscript style="font-size: 50%"><a
-								href="https://medium.com/@YuriShkuro/observability-challenges-in-microservices-and-cloud-native-applications-72857f9d03af">
-								Yuri Shkuro
-							</a>
-						</sup>
-					</small>
+
 					<aside class="notes">
 						<p>
 							<ul>
 								<li></li>
+								<li> Which services did a request go through?</li>
+								<li> What did every microservice do when processing the request?</li>
+								<li> If the request failed, where did the error happen?</li>
+								<li> How different was the execution of the request from the normal behavior of the
+									system?</li>
+								<li> Were the differences structural, that is, some new services were called, or
+									vice versa, some usual services were not called?</li>
 							</ul>
 						</p>
 					</aside>
@@ -590,23 +585,22 @@
 				</section>
 
 				<section>
-					Frameworks
+					<p class="fragement">
+						<ul>
+							<li>Trace</li>
+							<li>Span</li>
+							<li>Context</li>
+
+						</ul>
+					</p>
+
 					<aside class="notes">
 						<p>
 							<ul>
 								<li></li>
-							</ul>
-						</p>
-					</aside>
-
-				</section>
-
-				<section>
-					Instrumentation
-					<aside class="notes">
-						<p>
-							<ul>
 								<li></li>
+								<li></li>
+
 							</ul>
 						</p>
 					</aside>
@@ -630,8 +624,15 @@
 
 				</section>
 
+
 				<section>
-					Raw Format
+					<ul>
+						<li>Counters: Number of HTTP 500
+						<li>Gauge: Memory usage
+						<li>Histogram: Statistical distribution: 95th percentile of request execution
+						<li>Rate: Error/minutes
+					</ul>
+
 					<aside class="notes">
 						<p>
 							<ul>
@@ -639,11 +640,31 @@
 							</ul>
 						</p>
 					</aside>
+				</section>
 
+
+				<section>
+					<h3> Instrumentation</h3>
+					<ul>
+						<li> Sidecar
+						<li> Agent
+						<li> Framework
+					</ul>
+
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
 				<section>
-					Presentation
+					<h3>Flame Graph</h3>
+					<img src="images/flame-graph.png">
 					<aside class="notes">
 						<p>
 							<ul>
