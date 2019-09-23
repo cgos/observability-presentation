@@ -305,7 +305,7 @@
 				</section>
 
 				<section data-background="#fff">
-					<div style="float: left; width: 35%; margin-top: 1em">
+					<div style="float: left; width: 50%; margin-top: 1em">
 						<p>
 							An app should not attempt to write to or manage logfiles.<br>
 						</p>
@@ -319,7 +319,7 @@
 						</small>
 					</div>
 
-					<div style=" float: right; width: 60%; vertical-align: text-bottom;">
+					<div style=" float: right; width: 50%; vertical-align: text-bottom;">
 						<p>
 							<img src="images/fluentd-high-level.png" style="background-color: #fff;">
 							<small>
@@ -478,10 +478,15 @@
 
 				<section>
 					<ul>
-						<li><font color="#db04a2">Counters:</font> Number of HTTP 500
-						<li><font color="#db04a2">Gauge:</font> Memory usage
-						<li><font color="#db04a2">Histogram:</font> Statistical distribution: 95th percentile of request execution
-						<li><font color="#db04a2">Rate:</font> Error/minutes
+						<li>
+							<font color="#db04a2">Counters:</font> Number of HTTP 500
+						<li>
+							<font color="#db04a2">Gauge:</font> Memory usage
+						<li>
+							<font color="#db04a2">Histogram:</font> Statistical distribution: 95th percentile of request
+							execution
+						<li>
+							<font color="#db04a2">Rate:</font> Error/minutes
 					</ul>
 					<aside class="notes">
 						<p>
@@ -617,7 +622,7 @@
 									<font color="#db04a2">SpanContext:</font>
 									<div>
 										<small>
-											<minor>All the info identifying a Span, and that must be propagated, 
+											<minor>All the info identifying a Span, and that must be propagated,
 												such as: TraceId, SpanId</minor>
 										</small>
 									</div>
@@ -626,7 +631,8 @@
 									<font color="#db04a2">Tracer:</font>
 									<div>
 										<small>
-											<minor>The actual implementation that creates, inject and extract SpanContext</minor>
+											<minor>The actual implementation that creates, inject and extract
+												SpanContext</minor>
 										</small>
 									</div>
 								</li>
@@ -680,11 +686,47 @@
 				<section>
 					<h3> Instrumentation Mechanism</h3>
 					<ul>
-						<li> <font color="#db04a2">Agent:</font> no modification required
-						<li> <font color="#db04a2">Sidecar:</font> require modifications to the application code
-						<li> <font color="#db04a2">Framework:</font> embedded in the application code
+						<li>
+							<font color="#db04a2">Agent:</font>
+							<div>
+								<small>
+									<minor>
+										modification required. Example of agents à la sauce <a
+											href="https://bytebuddy.net">bytebuddy</a>:
+									</minor>
+								</small>
+							</div>
+
+							<ul><small>
+									<li style="margin-bottom: 0px;">opentracing: <a
+											href="https://github.com/opentracing-contrib/java-specialagent">java-specialagent</a>
+									</li>
+									<li style="margin-bottom: 0px;">datadog: <a
+											href="https://github.com/DataDog/dd-trace-java">dd-trace-agent</a></li>
+								</small>
+							</ul>
+
+						<li>
+							<font color="#db04a2">Sidecar:</font>
+							<div>
+								<small>
+									<minor>
+										Require modifications to the application code. Minimally the application should
+										forward SpanContext headers
+									</minor>
+								</small>
+							</div>
+						<li>
+							<font color="#db04a2">Framework:</font>
+							<div>
+								<small>
+									<minor>
+										Embedded in the application code. Almost every plateform provide a library.
+									</minor>
+								</small>
+							</div>
 					</ul>
-					https://bytebuddy.net/#/
+
 
 					<aside class="notes">
 						<p>
@@ -723,23 +765,6 @@
 							href="https://github.com/cgos/observability-app-demo">https://github.com/cgos/observability-app-demo</a>
 					</sup>
 				</small>
-				<aside class="notes">
-					<p>
-						<ul>
-							<li></li>
-						</ul>
-					</p>
-				</aside>
-
-			</section>
-
-			<section>
-				<h2>Demo</h2>
-				<p>How to instrument code for metrics and traces</p>
-				<ul>
-					<li>Prometheus for metrics</li>
-					<li>Jaeger for traces</li>
-				</ul>
 				<aside class="notes">
 					<p>
 						<ul>
