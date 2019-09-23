@@ -66,16 +66,15 @@
 				</aside>
 			</section>
 
-			<section style="text-align: left;" data-background="images/stealing.jpg" data-background-opacity="0.4">
-				<h3>Shamefully Stole </h3> 
-				<h3>or you might say "Inspired" from</h3>
+			<section>
+				<h3>Must read or watch </h3>
 				<p>
-					- <a href="https://github.com/adriancole">Adrian Cole</a><br>
-					- <a href="https://peter.bourgon.org">Peter Bourgon</a> <br>
-					- <a href="http://www.brendangregg.com/index.html">Brendan D. Gregg</a><br>
-					- <a href="https://github.com/yurishkuro">Yuri Shkuro</a> <br>
-					- <a href="https://medium.com/@el_bhs">Ben Sigelman</a> <br>
-					- <a href="https://twitter.com/copyconstruct">Cindy Sridharan</a> <br>
+					<a href="https://github.com/adriancole">Adrian Cole</a><br>
+					<a href="https://peter.bourgon.org">Peter Bourgon</a> <br>
+					<a href="http://www.brendangregg.com/index.html">Brendan D. Gregg</a><br>
+					<a href="https://github.com/yurishkuro">Yuri Shkuro</a> <br>
+					<a href="https://medium.com/@el_bhs">Ben Sigelman</a> <br>
+					<a href="https://twitter.com/copyconstruct">Cindy Sridharan</a> <br>
 				</p>
 				<aside class="notes">
 					<p>
@@ -159,17 +158,46 @@
 
 				</section>
 
+				<section>
+					<h3>Monitoring and Observability</h3>
+					<!--check http://slides.com/gsklee/functional-programming-in-5-minutes#/10-->
+					<div style="float: left; width: 50%; margin-top: 1em">
+						<p><small>
+								<font color="#fa0">Observability</font> is an attribute meaning the system
+								is emitting a signal.
+							</small></p>
+						<img src="images/dusan-smetana-8q-g0uY6jU8-unsplash.jpg" style="width: 60%;height: auto;">
+					</div>
+					<div style="float: right; width: 50%; margin-top: 1em">
+						<p><small>
+								<font color="#fa0">Monitoring</font> is an action taken from a human or a
+								machine based on an event.
+							</small></p>
+						<img src="images/rainer-bleek-3DnX8CUsYmw-unsplash.jpg" style="width: 60%;height: auto;">
+					</div>
+					<aside class="notes">
+						<p>
+							<ul>
+								<li></li>
+							</ul>
+						</p>
+					</aside>
+
+				</section>
+
 				<section data-background="#fff">
 					<div style="float: left; width: 55%; margin-top: 1em">
 						<ul>
-							<li> Logs:
+							<li>
+								<font color="#db04a2">Logs:</font>
 								<div>
 									<small>
 										<minor>Easy to grep, to read and produces a high volume of data</minor>
 									</small>
 								</div>
 
-							<li> Metrics:
+							<li>
+								<font color="#db04a2">Metrics:</font>
 								<div>
 									<small>
 										<minor>Identify trends over time, are visualize through graphs and produce low
@@ -177,7 +205,8 @@
 									</small>
 								</div>
 
-							<li> Distributed traces:
+							<li>
+								<font color="#db04a2">Distributed traces:</font>
 								<div>
 									<small>
 										<minor>Identify tree of calls across services</minor>
@@ -212,32 +241,8 @@
 
 				</section>
 
-				<section>
-					<h3>Monitoring and Observability</h3>
-					<!--check http://slides.com/gsklee/functional-programming-in-5-minutes#/10-->
-					<div style="float: left; width: 50%; margin-top: 1em">
-						<p><small>
-								<font color="#fa0">Observability</font> is an attribute meaning the system
-								is emitting a signal.
-							</small></p>
-						<img src="images/dusan-smetana-8q-g0uY6jU8-unsplash.jpg" style="width: 60%;height: auto;">
-					</div>
-					<div style="float: right; width: 50%; margin-top: 1em">
-						<p><small>
-								<font color="#fa0">Monitoring</font> is an action taken from a human or a
-								machine based on an event.
-							</small></p>
-						<img src="images/rainer-bleek-3DnX8CUsYmw-unsplash.jpg" style="width: 60%;height: auto;">
-					</div>
-					<aside class="notes">
-						<p>
-							<ul>
-								<li></li>
-							</ul>
-						</p>
-					</aside>
 
-				</section>
+
 				<section data-background="images/IMG_3926.JPG" data-background-opacity="0.4">
 					<h3>Telemetry and Observability</h3>
 					<a href="https://connect.garmin.com/modern/activity/3780455873">It's about recording & transmitting
@@ -473,10 +478,10 @@
 
 				<section>
 					<ul>
-						<li>Counters: Number of HTTP 500
-						<li>Gauge: Memory usage
-						<li>Histogram: Statistical distribution: 95th percentile of request execution
-						<li>Rate: Error/minutes
+						<li><font color="#db04a2">Counters:</font> Number of HTTP 500
+						<li><font color="#db04a2">Gauge:</font> Memory usage
+						<li><font color="#db04a2">Histogram:</font> Statistical distribution: 95th percentile of request execution
+						<li><font color="#db04a2">Rate:</font> Error/minutes
 					</ul>
 					<aside class="notes">
 						<p>
@@ -584,20 +589,68 @@
 
 				</section>
 
-				<section>
-					<p class="fragement">
-						<ul>
-							<li>Trace</li>
-							<li>Span</li>
-							<li>Context</li>
+				<section data-background="#fff">
+					<h3>OpenTracing Overview</h3>
 
-						</ul>
-					</p>
+
+
+					<div style="float: left; width: 65%; margin-top: 1em">
+						<p class="fragement">
+							<ul>
+								<li style="margin-bottom: 0px;">
+									<font color="#db04a2">Trace:</font>
+									<div>
+										<small>
+											<minor>Collection of Spans reprensented as a DAG</minor>
+										</small>
+									</div>
+								</li>
+								<li style="margin-bottom: 0px;">
+									<font color="#db04a2">Span:</font>
+									<div>
+										<small>
+											<minor>Unit of work defined by: operation name, timestamps and more</minor>
+										</small>
+									</div>
+								</li>
+								<li style="margin-bottom: 0px;">
+									<font color="#db04a2">SpanContext:</font>
+									<div>
+										<small>
+											<minor>All the info identifying a Span, and that must be propagated, 
+												such as: TraceId, SpanId</minor>
+										</small>
+									</div>
+								</li>
+								<li style="margin-bottom: 0px;">
+									<font color="#db04a2">Tracer:</font>
+									<div>
+										<small>
+											<minor>The actual implementation that creates, inject and extract SpanContext</minor>
+										</small>
+									</div>
+								</li>
+
+							</ul>
+						</p>
+					</div>
+
+					<div style=" float: right; width: 35%; vertical-align: text-bottom;">
+						<p>
+							<img src="images/Directed_acyclic_graph_2.svg" style="background-color: #fff;">
+							<small>
+								<sup class=superscript style="font-size: 50%"><a
+										href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">https://en.wikipedia.org/wiki/Directed_acyclic_graph</a>
+								</sup>
+							</small>
+						</p>
+					</div>
+
 
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Le nouvelle mouture de la spec est sous OpenTelemetry</li>
 								<li></li>
 								<li></li>
 
@@ -624,32 +677,14 @@
 
 				</section>
 
-
 				<section>
+					<h3> Instrumentation Mechanism</h3>
 					<ul>
-						<li>Counters: Number of HTTP 500
-						<li>Gauge: Memory usage
-						<li>Histogram: Statistical distribution: 95th percentile of request execution
-						<li>Rate: Error/minutes
+						<li> <font color="#db04a2">Agent:</font> no modification required
+						<li> <font color="#db04a2">Sidecar:</font> require modifications to the application code
+						<li> <font color="#db04a2">Framework:</font> embedded in the application code
 					</ul>
-
-					<aside class="notes">
-						<p>
-							<ul>
-								<li></li>
-							</ul>
-						</p>
-					</aside>
-				</section>
-
-
-				<section>
-					<h3> Instrumentation</h3>
-					<ul>
-						<li> Sidecar
-						<li> Agent
-						<li> Framework
-					</ul>
+					https://bytebuddy.net/#/
 
 					<aside class="notes">
 						<p>
