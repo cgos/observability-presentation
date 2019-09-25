@@ -61,15 +61,17 @@
 				</p>
 				<aside class="notes">
 					<p>
-						<ul>														
+						<ul>
 							<li>Parlons Observability, comment nous devons absolument mesurer la santé de nos systèmes
-								en production</li>							
+								en production</li>
 							<li>L'approche microservice est aujourd'hui l'architecture de predilection</li>
 							<li>Ca vient avec des avantages et aussi avec Complexité accrue</li>
 							<li>Trouver la composante en souffrance demande de meilleurs informations</li>
-							<li>Eviter l'anti pattern de Flying Blind: aller en production sans avoir suffisament d'information</li>
+							<li>Eviter l'anti pattern de Flying Blind: aller en production sans avoir suffisament
+								d'information</li>
 							<li> on doit faire de la prospection</li>
 							<li>C'est pour ca que le terme observabilité fait surface</li>
+							<li> Adherer au principe de l'observabilité est le sujet de ma presentation</li>
 							<li>Fabrice, Maxime et Adil</li>
 							<li> Merci d'etre venu a ma presentation. </li>
 						</ul>
@@ -92,7 +94,8 @@
 				</p>
 				<aside class="notes">
 					<p>
-						Tout mon matériel provient de ces personnes
+						Je vous invite a consulter les ouvrages de ces personnes si vous travaillez dans un
+						environnement de microservices
 					</p>
 				</aside>
 			</section>
@@ -163,6 +166,7 @@
 									interne d'un système à partir des données qu'il produit</li>
 								<li>L'observabilité est à propos de produire des données</li>
 								<li>C'est ce que je vais découper dans ma présentation</li>
+								<li>Ou se situe l'observabilité par rapport au monitoring et a la Telemetry</li>
 							</ul>
 						</p>
 					</aside>
@@ -216,7 +220,7 @@
 								<li> Rythme Cardiaque, Cadence, Vitesse, Distance, Puissance, Élévation...</li>
 								<li>Observabilité</li>
 								<li>Monitoring de mes performances</li>
-								<li>Constater mon déclin... ma déchéance... ma mort à petit feux</li>
+								<li>Constater mon déclin... ma déchéance... </li>
 							</ul>
 						</p>
 					</aside>
@@ -310,7 +314,7 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Les logs est le pilier qu'on matrise le plus</li>
 							</ul>
 						</p>
 					</aside>
@@ -338,6 +342,7 @@
 								<li>Bruyant...Polluant</li>
 								<li>Transporter, Stocker, Analyser des logs c'est couteux et complex</li>
 								<li>Les resultats d'analyse de logs sont souvent mitigés</li>
+								<li>Pour alléger le processing des logs.. le cncf appuie des projets de logs</li>
 							</ul>
 						</p>
 					</aside>
@@ -438,6 +443,7 @@
 							<ul>
 								<li>Dans des situations encore trop frequente on se retrouve directement dans la console
 									d'un pod pour consulter les logs</li>
+								<li>au bas de l'echelle alimentaire du troubleshooting en prod</li>
 							</ul>
 						</p>
 					</aside>
@@ -539,8 +545,7 @@
 						<p>
 
 							<ul>
-								<li>Avec l'emphase sur les metrique un nouveau type de database est apparue: apres
-									relational, nosql, key value maintenant...</li>
+								<li>Avec l'emphase sur les metrique on se trouve a travailler de plus en plus avec des tsdb</li>
 								<li>tsdb design pour stocker des donnés qui change avec le temps: des times series data
 								</li>
 								<li>Analogie avec le velo ou l'on voit une capture d'une donnée échelonné dans le temps
@@ -666,6 +671,7 @@
 								<li> savoir en combien de temps chaque etape s'excecute</li>
 								<li> ou les erreurs arrivent</li>
 								<li> Goulot d'etranglement</li>
+								<li>Visualization</li>
 							</ul>
 						</p>
 					</aside>
@@ -734,8 +740,11 @@
 					<aside class="notes">
 						<p>
 							<ul>
+								<li>Terminologie</li>
+								<li>aussi des objets ou interface dans les librairies</li>
 								<li>Pour ce qui est du vocabulaire associé</li>
-								<li>Celui ci provient d'opentracing, mais zipkin, opencensus, jaeger, spring sleuth...</li>
+								<li>Celui ci provient d'opentracing, mais zipkin, opencensus, jaeger, spring sleuth...
+								</li>
 								<li>Le nouvelle mouture de la spec est sous OpenTelemetry</li>
 								<li></li>
 								<li></li>
@@ -775,48 +784,52 @@
 									</minor>
 								</small>
 							</div>
-							<li>
-									<font color="#db04a2">Sidecar:</font>
-									<div>
-										<small>
-											<minor>
-												Require modifications to the application code. Minimally the application should
-												forward SpanContext headers
-											</minor>
-										</small>
-									</div>
-		
-							<li>
-									<font color="#db04a2">Agent:</font>
-									<div>
-										<small>
-											<minor>
-												modification required. Example of agents à la sauce <a
-													href="https://bytebuddy.net">bytebuddy</a>:
-											</minor>
-										</small>
-									</div>
-		
-									<ul><small>
-											<li style="margin-bottom: 0px;">opentracing: <a
-													href="https://github.com/opentracing-contrib/java-specialagent">java-specialagent</a>
-											</li>
-											<li style="margin-bottom: 0px;">datadog: <a
-													href="https://github.com/DataDog/dd-trace-java">dd-trace-agent</a></li>
-										</small>
-									</ul>
-		
-		
+						<li>
+							<font color="#db04a2">Sidecar:</font>
+							<div>
+								<small>
+									<minor>
+										Require modifications to the application code. Minimally the application should
+										forward SpanContext headers
+									</minor>
+								</small>
+							</div>
+
+						<li>
+							<font color="#db04a2">Agent:</font>
+							<div>
+								<small>
+									<minor>
+										modification required. Example of agents à la sauce <a
+											href="https://bytebuddy.net">bytebuddy</a>:
+									</minor>
+								</small>
+							</div>
+
+							<ul><small>
+									<li style="margin-bottom: 0px;">opentracing: <a
+											href="https://github.com/opentracing-contrib/java-specialagent">java-specialagent</a>
+									</li>
+									<li style="margin-bottom: 0px;">datadog: <a
+											href="https://github.com/DataDog/dd-trace-java">dd-trace-agent</a></li>
+								</small>
+							</ul>
+
+
 					</ul>
 
 
 					<aside class="notes">
 						<p>
 							<ul>
-								<li>Comme les logs et les metriques, les traces viennent avec des mecanismes d'instrumentalisation</li>
-								<li>Le plus difficile étant d'utiliser les librairies disponible: opentracing, jaeger, zipkin</li>
-								<li>Voir comment cela est instrusif avec la demo... cela s'apparente à faire du slf4j, logger des traces</li>
-								<li>Sidecar: myth que le sidecar peut tout faire, il faut instrumenter le code applicatif</li>
+								<li>Comme les logs et les metriques, les traces viennent avec des mecanismes
+									d'instrumentalisation</li>
+								<li>Le plus difficile étant d'utiliser les librairies disponible: opentracing, jaeger,
+									zipkin (Demo)</li>
+								<li>Voir comment cela est instrusif avec la demo... cela s'apparente à faire du slf4j,
+									logger des traces</li>
+								<li>Sidecar: myth que le sidecar peut tout faire, il faut instrumenter le code
+									applicatif</li>
 								<li>Agent: aujourd'hui a la banque avec datadog. L'approche la moins instrusive.</li>
 								<li>ByteBuddy va injecter du code dans chaque objet chargé dans la jvm</li>
 							</ul>
@@ -939,8 +952,9 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li>Maintenant que nous avons des signaux de nos applications</li>								
-								<li>Nous allons analyser ces signaux pour Alerter, Troubleshooter, Fine tuning (ajustement) et planification de la capacité</li>
+								<li>Maintenant que nous avons des signaux de nos applications</li>
+								<li>Nous allons analyser ces signaux pour Alerter, Troubleshooter, Fine tuning
+									(ajustement) et planification de la capacité</li>
 								<li></li>
 
 							</ul>
@@ -965,7 +979,8 @@
 								<li>Choisir ce que nous mesurons avec discernement</li>
 								<li>Comprendre et expliquer ce qui est mesurer</li>
 								<li>Avoir un plan d'action pour chacune des mesures</li>
-								<li>Venez nous voir au Kiosque de l'observability avec Majida, Raffi, Benoit et Hicham</li>
+								<li>Venez nous voir au Kiosque de l'observability avec Majida, Raffi, Benoit et Hicham
+								</li>
 							</ul>
 						</p>
 					</aside>
