@@ -61,7 +61,20 @@
 				</p>
 				<aside class="notes">
 					<p>
-						Parlons Observability, comment nous pouvons mesurer la santé de nos systèmes
+						<ul>
+							<li>Parlons Observability, comment nous devons absolument mesurer la santé de nos systèmes
+								en production</li>
+							<li>Pourquoi?</li>
+							<li>Il y a pas si longtemps mon serveur tomcat/websphere est down l'application est down
+							</li>
+							<li>L'approche microservice est aujourd'hui l'architecture de predilection</li>
+							<li>Ca vient avec des avantages et aussi avec Complexité accrue</li>
+							<li>Trouver la composante en souffrance demande de meilleurs informations</li>
+							<li>Sans cette information we are flying blind et on doit faire de la prospection</li>
+							<li>C'est ici que le terme observabilité arrive</li>
+							<li> Merci d'etre venu a ma presentation. </li>
+						</ul>
+
 					</p>
 				</aside>
 			</section>
@@ -80,9 +93,7 @@
 				</p>
 				<aside class="notes">
 					<p>
-						Premièrement, mea culpa, tout le matériel de cette présentation vient principalement du contenu
-						produit par
-						ces personnes
+						Tout mon matériel provient de ces personnes
 					</p>
 				</aside>
 			</section>
@@ -93,21 +104,17 @@
 
 					<aside class="notes">
 						<p>
-							Pourquoi parlé d'observablité? Le standard aujourd'hui consiste à produire des systèmes en
-							format containers. Juste la notion de
-							containerization représente un défi en soi:
 							<ul>
-								<li>quelle image</li>
-								<li>comment la construire</li>
-								<li>la taille</li>
-								<li>immutablity</li>
+								<li>L'image du CNCF illustré le trajet à suivre vers une architecture cloud</li>
+								<li>Sequence / Balise</li>
+								<li>Containerisation et la notion de immutable application, la separation de la
+									configuration du code</li>
+								<li>CI/CD: separation des notions de builds et notion de release</li>
+								<li>La plateforme visée... K8s</li>
+								<li>Observabilité et Analyse: Prometheus, FluentD et Jaeger</li>
+								<li>service mesh: envoy, coreDNS, linkerd, traefik, istio</li>
+								<li>Chacun des points méritent une présentation</li>
 							</ul>
-
-							la notion de container implique plusieurs considération de software design que nous devons
-							maitriser expliqué entre autre sur le site 12factor.net
-
-
-
 						</p>
 					</aside>
 				</section>
@@ -153,7 +160,10 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Il existe plusieurs defintions qui tourne tous autour de la notion d'inférer l'état
+									interne d'un système à partir des données qu'il produit</li>
+								<li>L'observabilité est à propos de produire des données</li>
+								<li>C'est ce que je vais découper dans ma présentation</li>
 							</ul>
 						</p>
 					</aside>
@@ -180,11 +190,37 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Pour situer l'observabilité par rapport au Monitoring</li>
+								<li>L'observabilité est un etat</li>
+								<li>Un etat ou notre systeme émets des signaux qui peuvent être captés et interpréter
+								</li>
+								<li>Le monitoring fait reference à une activité de vigie, de surveillance</li>
 							</ul>
 						</p>
 					</aside>
 
+				</section>
+
+
+				<section data-background="images/IMG_3926.JPG" data-background-opacity="0.4">
+					<h3>Telemetry and Observability</h3>
+					<a href="https://connect.garmin.com/modern/activity/3780455873">It's about recording & transmitting
+						the readings of an instrument.</a>
+
+					<aside class="notes">
+						<p>
+							<ul>
+								<li>Pour situer l'observabilité par rapport a la telemetrie</li>
+								<li>Observabilité système</li>
+								<li>Telemetry: Instruments</li>
+								<li>Pour les sportifs, garmin est une excellente analogie</li>
+								<li> Rythme Cardiaque, Cadence, Vitesse, Distance, Puissance, Élévation...</li>
+								<li>Observabilité</li>
+								<li>Monitoring de mes performances</li>
+								<li>Constater mon déclin... ma déchéance... ma mort à petit feux</li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
 				<section data-background="#fff">
@@ -236,20 +272,19 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Le point sallaint de la definition de l'observabilité consiste à</li>
+								<li>On referes aux piliers de l'observabilité comme étant...</li>
+								<li> Pour la suite de la presentation, je vais detailler ça represente quoi</li>
 							</ul>
+
+							Donner l'agenda: pour chacun des piliers: definition, soulever des points interessants,
+							concept interesants associés au pillier, format instrumentation, ensuite un demo
+
 						</p>
 					</aside>
 
 				</section>
 
-
-
-				<section data-background="images/IMG_3926.JPG" data-background-opacity="0.4">
-					<h3>Telemetry and Observability</h3>
-					<a href="https://connect.garmin.com/modern/activity/3780455873">It's about recording & transmitting
-						the readings of an instrument.</a>
-				</section>
 			</section>
 			<section>
 				<section data-background-color="rgba( 22, 152, 213, 0.6  )">
@@ -299,7 +334,11 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>La trame de fond est:</li>
+								<li>Produire des logs c'est trivial</li>
+								<li>Bruyant...Polluant</li>
+								<li>Transporter, Stocker, Analyser des logs c'est couteux et complex</li>
+								<li>Les resultats d'analyse de logs sont souvent mitigés</li>
 							</ul>
 						</p>
 					</aside>
@@ -333,8 +372,13 @@
 					</div>
 					<aside class="notes">
 						<p>
+							Au dela de produire des logs
 							<ul>
-								<li></li>
+								<li>Où le CNCF intervient c'est en définissiant une pratique pour recolter et
+									transporter des logs</li>
+								<li>FluentD sous CNCF et tout autre agent ou plateforme qui decouple la source de donnée
+									du system backend adhere au bonne pratiques de genie logicielles</li>
+								<li>Donc ici on peut parler de stack EFK ou ELK</li>
 							</ul>
 						</p>
 					</aside>
@@ -368,7 +412,8 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>C'est trivial de générer des logs aujourd'hui</li>
+								<li>les bonnes pratiques sont peut etre moins evidente</li>
 							</ul>
 						</p>
 					</aside>
@@ -377,10 +422,26 @@
 
 				<section>
 					<img src="images/splunk-logs.png" style="width: 300%;height: auto;">
+					<aside class="notes">
+						<p>
+							<ul>
+								<li>Si on est bien outillé on peut consulter et chercher dans nos logs a partir d'une
+									application comme splunk ou kibana par exemple</li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
 				<section>
 					<img src="images/raw-logs.png" class="center" style="max-width: 110%">
+					<aside class="notes">
+						<p>
+							<ul>
+								<li>Dans des situations encore trop frequente on se retrouve directement dans la console
+									d'un pod pour consulter les logs</li>
+							</ul>
+						</p>
+					</aside>
 				</section>
 
 
@@ -404,7 +465,10 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Une représentation numérique mesuré sur un intervalle de temps</li>
+								<li>pour revenir a mon analogie de velo bien je peux connaitre rythme cardiaque moyen
+								</li>
+								<li>Ca aide a faire des previsions</li>
 							</ul>
 						</p>
 					</aside>
@@ -428,13 +492,15 @@
 					</small>
 					<aside class="notes">
 						<p>
+							Points intéressants a noter
 							<ul>
-								<li>Plus de requete ne génère pas plus de métrique</li>
+								<li>Contrairement au log, Plus de requete ne génère pas plus de métrique</li>
 								<li>Disponible presque immédiatement</li>
 								<li>Facile d'appliquer des calculs sur les différentes métriques</li>
 								<li>Le cout augmente avec le nombre de composante devant être identifié et comptabilisé
 								</li>
-								<li>attaché à un seul système à défaut d'avoir un UID qui permet de faire des
+								<li>Comme les logs, les metriques sont attachés à un seul système à défaut d'avoir un
+									UID qui permet de faire des
 									corrélations</li>
 							</ul>
 						</p>
@@ -443,11 +509,14 @@
 
 				<section data-background="#fff">
 					<h3>Time Series and TSDB</h3>
-					<div style="float: left; width: 65%; margin-top: 1em">
+					<div style="float: left; width: 45%; margin-top: 1em">
 						<p>
-							A time series is simply a series of data points ordered in time.
-							In a time series, time is often the independent variable and the goal is usually to make a
-							forecast for the future
+							<small>
+								A time series is simply a series of data points ordered in time.<br><br>
+								In a time series, time is often the independent variable and the goal is usually to make
+								a
+								forecast for the future
+							</small>
 						</p>
 						<small>
 							<sup class=superscript style="font-size: 50%"><a
@@ -458,22 +527,25 @@
 						</small>
 					</div>
 
-					<div style=" float: right; width: 35%; vertical-align: text-bottom;">
+					<div style=" float: right; width: 55%; vertical-align: text-bottom;">
 						<p>
-							<img src="images/Random-data-plus-trend-r2.png" style="background-color: #fff;">
+							<img src="images/timeseries-strava.png" style="background-color: #fff;">
 							<small>
-								<sup class=superscript style="font-size: 50%"><a
-										href="https://en.wikipedia.org/wiki/Time_series">https://en.wikipedia.org/wiki/Time_series</a>
+								<sup class=superscript style="font-size: 50%">Strava
 								</sup>
 							</small>
 						</p>
 					</div>
 					<aside class="notes">
 						<p>
+
 							<ul>
-								<li></li>
-								<li>Les metriques nous aident par exemple a repondre a la question, est-ce que le temps
-									d'exec de cette requete est lent</li>
+								<li>Avec l'emphase sur les metrique un nouveau type de database est apparue: apres
+									relational, nosql, key value maintenant...</li>
+								<li>tsdb design pour stocker des donnés qui change avec le temps: des times series data
+								</li>
+								<li>Analogie avec le velo ou l'on voit une capture d'une donnée échelonné dans le temps
+								</li>
 							</ul>
 						</p>
 					</aside>
@@ -495,7 +567,10 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Le counter augmente toujours</li>
+								<li>Le jauge varie.. comme ma vitesse</li>
+								<li>distribution au percentile</li>
+								<li>ratio</li>
 							</ul>
 						</p>
 					</aside>
@@ -514,8 +589,6 @@
 						<p>
 							<ul>
 								<li>Labels by hosts, environment, url, service name, http status code</li>
-								<li>Pull vs Push and JMX exporter or actuator + micrometer</li>
-								<li> plus de details dans la demo </li>
 							</ul>
 						</p>
 					</aside>
@@ -528,7 +601,8 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Pull vs Push and JMX exporter or actuator + micrometer</li>
+								<li>Prometheus vs StatsD</li>
 							</ul>
 						</p>
 					</aside>
@@ -560,7 +634,9 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Le concept le plus récent et le moins mature.. mais également le plus attrayant</li>
+								<li> Ce définit comme une méthode permettant de profiler des applications en ligne pour
+									cibler différents type de problèmes</li>
 							</ul>
 						</p>
 					</aside>
@@ -583,15 +659,14 @@
 
 					<aside class="notes">
 						<p>
+							Points intéressants a noter
 							<ul>
-								<li></li>
-								<li> Which services did a request go through?</li>
-								<li> What did every microservice do when processing the request?</li>
-								<li> If the request failed, where did the error happen?</li>
-								<li> How different was the execution of the request from the normal behavior of the
-									system?</li>
-								<li> Were the differences structural, that is, some new services were called, or
-									vice versa, some usual services were not called?</li>
+								<li>Le concept s'implémente en associant un ID unique a toutes les transactions dans le
+									systeme</li>
+								<li> Ce qui nous permet de suivre une requete dans l'ecosysteme</li>
+								<li> savoir en combien de temps chaque etape s'excecute</li>
+								<li> ou les erreurs arrivent</li>
+								<li> Goulot d'etranglement</li>
 							</ul>
 						</p>
 					</aside>
@@ -660,6 +735,8 @@
 					<aside class="notes">
 						<p>
 							<ul>
+								<li>Pour ce qui est du vocabulaire associé</li>
+								<li>Celui ci provient d'opentracing, mais zipkin, opencensus, jaeger, spring sleuth...</li>
 								<li>Le nouvelle mouture de la spec est sous OpenTelemetry</li>
 								<li></li>
 								<li></li>
@@ -680,7 +757,7 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Diagramme d'architecture de Jaeger qui resume bien</li>
 							</ul>
 						</p>
 					</aside>
@@ -691,36 +768,6 @@
 					<h3> Instrumentation Mechanism</h3>
 					<ul>
 						<li>
-							<font color="#db04a2">Agent:</font>
-							<div>
-								<small>
-									<minor>
-										modification required. Example of agents à la sauce <a
-											href="https://bytebuddy.net">bytebuddy</a>:
-									</minor>
-								</small>
-							</div>
-
-							<ul><small>
-									<li style="margin-bottom: 0px;">opentracing: <a
-											href="https://github.com/opentracing-contrib/java-specialagent">java-specialagent</a>
-									</li>
-									<li style="margin-bottom: 0px;">datadog: <a
-											href="https://github.com/DataDog/dd-trace-java">dd-trace-agent</a></li>
-								</small>
-							</ul>
-
-						<li>
-							<font color="#db04a2">Sidecar:</font>
-							<div>
-								<small>
-									<minor>
-										Require modifications to the application code. Minimally the application should
-										forward SpanContext headers
-									</minor>
-								</small>
-							</div>
-						<li>
 							<font color="#db04a2">Framework:</font>
 							<div>
 								<small>
@@ -729,15 +776,50 @@
 									</minor>
 								</small>
 							</div>
+							<li>
+									<font color="#db04a2">Sidecar:</font>
+									<div>
+										<small>
+											<minor>
+												Require modifications to the application code. Minimally the application should
+												forward SpanContext headers
+											</minor>
+										</small>
+									</div>
+		
+							<li>
+									<font color="#db04a2">Agent:</font>
+									<div>
+										<small>
+											<minor>
+												modification required. Example of agents à la sauce <a
+													href="https://bytebuddy.net">bytebuddy</a>:
+											</minor>
+										</small>
+									</div>
+		
+									<ul><small>
+											<li style="margin-bottom: 0px;">opentracing: <a
+													href="https://github.com/opentracing-contrib/java-specialagent">java-specialagent</a>
+											</li>
+											<li style="margin-bottom: 0px;">datadog: <a
+													href="https://github.com/DataDog/dd-trace-java">dd-trace-agent</a></li>
+										</small>
+									</ul>
+		
+		
 					</ul>
 
 
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
+								<li>Comme les logs et les metriques, les traces viennent avec des mecanismes d'instrumentalisation</li>
+								<li>Le plus difficile étant d'utiliser les librairies disponible: opentracing, jaeger, zipkin</li>
+								<li>Voir comment cela est instrusif avec la demo... cela s'apparente à faire du slf4j, logger des traces</li>
+								<li>Sidecar: myth que le sidecar peut tout faire, il faut instrumenter le code applicatif</li>
+								<li>Agent: aujourd'hui a la banque avec datadog. L'approche la moins instrusive.</li>
+								<li>ByteBuddy va injecter du code dans chaque objet chargé dans la jvm</li>
 							</ul>
 						</p>
 					</aside>
@@ -749,7 +831,7 @@
 					<aside class="notes">
 						<p>
 							<ul>
-								<li></li>
+								<li>Un des points fort des trace c'est le Flame Graph</li>
 							</ul>
 						</p>
 					</aside>
@@ -817,7 +899,8 @@
 									<font color="#db04a2">USE (Brendan Gregg):</font>
 									<div>
 										<small>
-											<minor>For every resource, check Utilization, Saturation, and Errors.</minor>
+											<minor>For every resource, check Utilization, Saturation, and Errors.
+											</minor>
 										</small>
 									</div>
 								</li>
